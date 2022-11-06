@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "rp-zephyst",
+  "private_key_id": "1be141451e9d267a069b71e82398a24fe1397929",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDRqohbkZtLEvnO\nEfk7VvEy1kWUTeCa+cFQ22ewTSOiZfRd/ZJY2dyWnTfA14kqqOg5991avERNK2Oz\nUNn3VrmJEDAQo/MgHdgrbriUl/5mgvJQVyEW0UlS4oJjoMCX5QdjAJ96fXegluv5\nQlXHKNSqyMdIuqQ8tOQEe+WE0MgO4IIGWpBNhYN002/eJm39axDflT87cF6ouBbn\ndRxUhiY2mVBgyXRrOejepRjJKfX821HEbN0u5Ujbptvv2pF0Dp/PYw0Ep99m8U4T\nwsjHCXQaDxWmWLfpC5NdlVEZ/LRfLcFFv6l3H8gOO4tuGHDgjr448VYrby0LTh1j\nFhdEOwrpAgMBAAECggEASU0+NAlhiis9s8p74L+iPxxDojhh9Lyp1fuHMk+dzDqp\n5yxufGraoLuhkOWp+oSoABBEzuKwXGx1hG0Zb0xePGmw7DhtmUZl27Vvid/j3PIe\nBnGXy3LrGDPB01QR0WkMnpPKrdfsuXPaV0BWXfVL+NOOPMKoBeNWLq0kTr1xnCVG\nu2cL1dBZwQ+hZsgB+Z0Om81p31qTUCqS2QUifFHSTt9pNLvoAYmANo8O4jEPk8X1\nWtfJdb5lIjlHiu2uiWO4I2X0pnIPC2gEZG9ypNxesjYELN9Ki5uXC9iNHvmeSx9Y\n4usxPeCp9XNNrn7HQX4tbznTxP/9oxyUuXqPv4UdIwKBgQDrg4cCl3J1deNAdnpu\nUkdIKHdBUuZiMawGDPjumfVSegie52vhM+dNkcbmQG1j7XQtCrNaGNNCy5FGtgVU\nwmbHc1cikBYCzO1prhZQZn6gSxbEJRKWdJ2BZHEKQJTSFXUyvZR1qQtD1zQmzduY\nssbRXTArEcvnMg2njEEHGH47swKBgQDj52ynWV7XCBQ35E0rzN7bDqgqZs+CCOqu\nUXi0Ku22P7/1oguB03hUS6nxNAHZ17Mmy3F/ww0ufDYfAh9GZCsfDhYYBnmQ93+e\nNCVWlMOz3Tf9GDtfP3UhOZjpVNjsVGrdmY7931foaw7u7rM5ex7slIYuTZmoMRRw\n1UJgbkYg8wKBgEOKre59VnL/QxQaplP7Prwf9suCJdYlXqtBjyaGeseTfeNshRDJ\n3NzvILap5XVSBQ5h0jvVgMjYLqqzyuWa9vTeTC/6WIWnFbNIHNgj/M6lmjrYUvNZ\nME6KaqzBBq0VQE4z9l6kAzoKfsdeJEsvgjtK2WSQrwR341iYrZGGYbVnAoGARhzy\nXmGuPbUsky1XWHxEq1vM/I54lGat3EcQPU1fqEvggG8D30Lxp+1HMP9w+lXTtcGs\n/0NAkOaBt/RtLriuU3V/8pA7Yg/iYQdl3UcTFgiequyDh3/8RuZzVoVV3w7xeY8+\nYHgPkV8uTu98j9iC4QGobiJNfWLsCPJy4zvJs2UCgYEAjvknpDH6g0enWBCBFdNU\nQUzqT4xkm3hLxqzPVEV2FxqnYwvE2T3Xq5VTDdnc2DmAEMPk6HMBd6+QbybXSX4y\nDS0878goTuSyEiXwbXVUe20Kyknf15RMZcIt5AWQ51284Hl4ay5KBc+cMLiQhZie\nw/z0hD88YtXWUqkEL9lkbqo=\n-----END PRIVATE KEY-----\n",
+  "client_email": "zephsytrp@rp-zephyst.iam.gserviceaccount.com",
+  "client_id": "118089464647839626212",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/zephsytrp%40rp-zephyst.iam.gserviceaccount.com"
+}
