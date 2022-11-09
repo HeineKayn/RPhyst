@@ -12,13 +12,6 @@ app_pass = os.getenv('APP_Pass')
 
 app = Quart(__name__, static_folder=None)
 
-from discord.ext.ipc import Client
-
-ipc_pass = os.getenv('IPC_Pass')
-global ipc_client 
-ipc_client = Client(secret_key = ipc_pass)
-app.config["ipc_client"] = ipc_client
-
 # ---------------
 
 from rphyst import rphystBP

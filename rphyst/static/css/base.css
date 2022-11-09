@@ -4,6 +4,45 @@ body {
 }
 
 .nav-item a svg,
-.nav-item a span{
+.nav-item a span {
     color: rgb(212, 212, 212);
+}
+
+#containerLoot {
+    height: 30vw;
+    padding-top: 2vw;
+}
+
+.col-sm,
+.row {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#inputLoot,
+#outputLoot,
+#middleLoot {
+    height: 100%;
+    width: 80%;
+}
+
+#outputLoot {
+    background-color: white;
+}
+
+#middleLoot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#nbLoot {
+    margin: 10px;
+}
+
+.arrow {
+    color: white;
+    font-size: 5vw;
 }
