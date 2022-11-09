@@ -3,11 +3,11 @@
 <div class="container-fluid" id="containerLoot">
     <div class="row">
         <div class="col-sm">
-            <textarea id="inputLoot"></textarea>
+            <textarea id="inputLoot" onclick="this.value=''"></textarea>
         </div>
         <div class="col-sm" id="middleLoot">
                 <span class="arrow">&#8594;</span>
-                <input type="number" id="nbLoot" min="0" max="1000" value="0">
+                <input type="number" id="nbLoot" min="0" max="1000" value="0" onclick="this.value=''">
                 <button type="button" class="btn btn-light" id="confirmLoot">Confirm</button>
         </div>
         <div class="col-sm">
