@@ -24,6 +24,7 @@ async def roll():
         else :
             loots[loot] = 1
 
+    loots = dict(sorted(loots.items()))
     text = ""
     for key, value in loots.items():
         if value > 1 :
