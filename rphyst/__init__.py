@@ -9,6 +9,9 @@ rphystBP = Blueprint('rphyst', __name__, template_folder='templates', static_fol
 from .routes.loot import lootBP
 rphystBP.register_blueprint(lootBP,url_prefix='/loot')
 
+from .routes.shop import shopBP
+rphystBP.register_blueprint(shopBP,url_prefix='/shop')
+
 # ---------------
 
 @rphystBP.route("/")

@@ -1,18 +1,14 @@
 {% extends "baseRPhyst.html" %} {% block content %}
 
-<link rel="stylesheet" href="../static/css/home.css">
-
 <div class="container-fluid" id="containerLoot">
     <div class="row">
         <div class="col-sm">
             <textarea id="inputLoot"></textarea>
         </div>
-        <div class="col-sm">
-            <div id="middleLoot">
+        <div class="col-sm" id="middleLoot">
                 <span class="arrow">&#8594;</span>
                 <input type="number" id="nbLoot" min="0" max="1000" value="0">
                 <button type="button" class="btn btn-light" id="confirmLoot">Confirm</button>
-            </div>
         </div>
         <div class="col-sm">
             <textarea id="outputLoot"></textarea>

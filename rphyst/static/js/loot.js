@@ -8,7 +8,7 @@ function rollLoots() {
             'n': document.getElementById("nbLoot").value
         },
         success: function(data) {
-            document.getElementById("outputLoot").value = data[0];
+            document.getElementById("outputLoot").value = data.value;
         }
     });
 }

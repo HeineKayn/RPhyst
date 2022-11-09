@@ -4,7 +4,7 @@ from random import choice
 lootBP = Blueprint('loot', __name__)
 
 @lootBP.route("/")
-async def acceuil():
+async def loot():
     return await render_template('loot.html')
 
 @lootBP.route("/roll", methods=['GET','POST'])
@@ -32,4 +32,4 @@ async def roll():
         else :
              text += f"- {key}\n"
 
-    return [text]
+    return {"value":text}
