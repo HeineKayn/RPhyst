@@ -1,3 +1,72 @@
 {% extends "baseRPhyst.html" %} {% block content %}
 
+<div class="container-fluid" id="containerPage">
+    <div class="row">
+        <div class="col-sm-9 vertical">
+            <div class="full-left">
+                <input type="text" id="searchInput" placeholder="Recherche d'item" onkeyup="search()">
+            </div>
+
+            <div id="onglets">
+                <p onclick="switchOnglet(0)" class="active">Ressources</p>
+                <p onclick="switchOnglet(1)">Craft</p>
+                <p onclick="switchOnglet(2)">Equip</p>
+            </div>
+
+            {% for categorie in categories %}
+                <div class="table-responsive tableShop" indexValue={{ loop.index }} style="display: none;">
+                    <table class="table vertical-scroll table-dark table-hover" id="itemTable">
+                        <thead>
+                        <tr>
+                            {% for title in categorie.titles %}
+                                <th scope="col" class="text-nowrap clickable">{{ title }}</th>
+                            {% endfor %}
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for object in categorie.objects %}
+                                <tr>
+                                    {% for _, value in object.items() %}
+                                        <td>{{ value }}</td>
+                                    {% endfor %}
+                                    <td class="button-cell">
+                                        <button type="button" class="btn btn-success" id="lessShop" onclick="buyShop(this,-1)">-</button>
+                                        <button type="button" class="btn btn-danger" id="moreShop" onclick="buyShop(this,1)">+</button>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-sm-3 vertical">
+            <span id="padding"></span>
+            <div class="table-responsive" id="outputShop">
+                <table class="table vertical-scroll table-dark table-hover" id="inventoryTable">
+                    <thead>
+                    <tr>
+                        <th scope="col" class="text-nowrap clickable">Item ↕</th>
+                        <th scope="col" class="text-nowrap clickable">Quantité ↕</th>
+                        <th scope="col" class="text-nowrap clickable">Prix ↕</th>
+                        <th scope="col" class="text-nowrap clickable">Annuler</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div id="totalShop">
+                <div id="countTotal">
+                    <span><b><u>TOTAL</u></b></span>
+                    <span id="totalValue">0</span>
+                </div>
+                <div id="copyTotal"><button type="button" class="btn btn-primary" style="display: none"><i class="fas fa-copy"></i></button></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/rphyst/static/js/shop.js" type="text/javascript"></script>
+
 {% endblock %}

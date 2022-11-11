@@ -1,11 +1,11 @@
 {% extends "baseRPhyst.html" %} {% block content %}
 
-<div class="container-fluid" id="containerLoot">
+<div class="container-fluid" id="containerPage">
     <div class="row">
         <div class="col-sm">
             <textarea id="inputLoot" onclick="this.value=''"></textarea>
         </div>
-        <div class="col-sm" id="middleLoot">
+        <div class="col-sm vertical">
                 <span class="arrow">&#8594;</span>
                 <input type="number" id="nbLoot" min="0" max="1000" value="0" onclick="this.value=''">
                 <button type="button" class="btn btn-light" id="confirmLoot">Confirm</button>

@@ -1,0 +1,11 @@
+{% extends "baseRPhyst.html" %} {% block content %}
+
+<div class="container-fluid choiceShopContainer" id="containerPage">
+    <div id="shopkeepChoice">
+        {% for sk in sks %}
+            <a href="/rphyst/shop/marchand/{{ sk }}" class="marchands">{{ sk }}</a>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
