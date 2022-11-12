@@ -26,7 +26,6 @@ class Sheet():
 
     def getShop(self,attr,query):
         query = f'[item for item in self.sheet if {query}]'
-        print(query)
         loots = eval(query)
         for i,loot in enumerate(loots):
             loots[i] = { key: loot[key] for key in attr }
@@ -41,6 +40,7 @@ class Sheet():
                     item['Région'] in [{info['RégionL']}, 'Partout', 'Toutes', ''] and
                     item['Zone'] in [{info['ZoneL']}, 'Partout', 'Toutes', ''] and
                     item['Rareté'] in [{info['RaretéL']}] and
+                    item['Mob'] in [{info['MobL']},'Tous',''] and
                     item['Vente'] != 'Non'
                 """
         return query
@@ -62,6 +62,7 @@ class Sheet():
                     item['Région'] in [{info['RégionE']}, 'Partout', 'Toutes', ''] and
                     item['Zone'] in [{info['ZoneE']}, 'Partout', 'Toutes', ''] and
                     item['Rareté'] in [{info['RaretéE']}] and
+                    item['Mob'] in [{info['MobE']},'Tous',''] and
                     item['Vente'] != 'Non'
                 """
         return query
