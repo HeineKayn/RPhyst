@@ -15,11 +15,11 @@
 
             {% for categorie in categories %}
                 <div class="table-responsive tableShop" indexValue={{ loop.index }} style="display: none;">
-                    <table class="table vertical-scroll table-dark table-hover" id="itemTable">
+                    <table class="table vertical-scroll table-dark table-hover text-center" id="itemTable">
                         <thead>
                         <tr>
                             {% for title in categorie.titles %}
-                                <th scope="col" class="text-nowrap clickable">{{ title }}</th>
+                                <th scope="col" class="text-nowrap clickabler">{{ title }}</th>
                             {% endfor %}
                         </tr>
                         </thead>
@@ -43,7 +43,7 @@
         <div class="col-sm-3 vertical">
             <span id="padding"></span>
             <div class="table-responsive" id="outputShop">
-                <table class="table vertical-scroll table-dark table-hover" id="inventoryTable">
+                <table class="table vertical-scroll table-dark table-hover text-center" id="inventoryTable">
                     <thead>
                     <tr>
                         <th scope="col" class="text-nowrap clickable">Item ↕</th>

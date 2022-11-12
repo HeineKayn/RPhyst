@@ -2,7 +2,7 @@
 
 <div class="container-fluid choiceShopContainer" id="containerPage">
     <div id="shopkeepChoiceBig">
-        <button type="button" class="btn btn-info"><a href="/rphyst/shop/update">Update Database</a></button>
+        <button type="button" class="btn btn-primary"><a href="/rphyst/shop/update" id="updateBDD">Update Database</a></button>
         <div id="shopkeepChoiceSmall">
             {% for sk in sks %}
                 <a href="/rphyst/shop/marchand/{{ sk }}" class="marchands">{{ sk }}</a>
@@ -10,16 +10,5 @@
         </div>
     <div>
 </div>
-
-<script>
-    function updateBDD() {
-    $.ajax({
-        type: "POST",
-        url: '/rphyst/shop/update',
-        dataType: 'json',
-        data: {}
-    });
-}
-</script>
 
 {% endblock %}

@@ -26,28 +26,61 @@ class Sheet():
 
     def getShop(self,attr,query):
         query = f'[item for item in self.sheet if {query}]'
+        print(query)
         loots = eval(query)
         for i,loot in enumerate(loots):
             loots[i] = { key: loot[key] for key in attr }
+        loots = [i for n, i in enumerate(loots) if i not in loots[n + 1:]] # enlever duplicata
         return  {"titles" : attr,"objects" : loots}
 
+    # manque MOB et VENTE
     def getQueryLoot(self,info):
         query = f"""
                     'Loot' in item.keys() and 
-                    (not item['Level'] or int(item['Level'])<{info["Level"]}) and
-                    item['Région'] in ['{info["RégionL"]}', 'Toutes'] and
-                    item['Zone'] in ['{info["ZoneL"]}', 'Partout'] and
-                    item['Marchand'] in ['', '{info["Marchand"]}']
+                    (not item['Niveau'] or int(item['Niveau'])<=int({info['Level']})) and
+                    item['Région'] in [{info['RégionL']}, 'Partout', 'Toutes', ''] and
+                    item['Zone'] in [{info['ZoneL']}, 'Partout', 'Toutes', ''] and
+                    item['Rareté'] in [{info['RaretéL']}] and
+                    item['Vente'] != 'Non'
+                """
+        return query
+
+    def getQueryConso(self,info):
+        query = f"""
+                    'Craft' in item.keys() and 
+                    (not item['Niveau'] or int(item['Niveau'])<=int({info['Level']})) and
+                    item['Type'] in [{info['TypeR']}] and 
+                    item['Rareté'] in [{info['RaretéR']}] and
+                    item['Vente'] != 'Non'
+                """
+        return query
+
+    def getQueryEquip(self,info):
+        query = f"""
+                    'Equipement' in item.keys() and 
+                    (not item['Niveau'] or int(item['Niveau'])<=int({info['Level']})) and
+                    item['Région'] in [{info['RégionE']}, 'Partout', 'Toutes', ''] and
+                    item['Zone'] in [{info['ZoneE']}, 'Partout', 'Toutes', ''] and
+                    item['Rareté'] in [{info['RaretéE']}] and
+                    item['Vente'] != 'Non'
                 """
         return query
 
     def getQueriesMarchand(self,shopkeeper):
         infos = self.sheetMarchand.get_all_records()
         info = [info for info in infos if info["Marchand"] == shopkeeper][0]
+        for key,value in info.items():
+            if type(value) == str:
+                new_vals = value.split(",")
+                new_vals = [f"'{x.strip()}'" for x in new_vals]
+                new_vals = ','.join(new_vals)
+                info[key] = new_vals
 
         queryLoot = self.getQueryLoot(info)
-        
-        return [queryLoot]
+        queryConso = self.getQueryConso(info)
+        queryEquip = self.getQueryEquip(info)
+
+        return [queryLoot,queryConso,queryEquip]
 
     def refresh(self):
         self.__init__()
