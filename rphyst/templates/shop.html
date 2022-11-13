@@ -14,8 +14,8 @@
             </div>
 
             {% for categorie in categories %}
-                <div class="table-responsive tableShop" indexValue={{ loop.index }} style="display: none;">
-                    <table class="table vertical-scroll table-dark table-hover text-center" id="itemTable">
+                <div class="table-responsive tableShop"style="display: none;">
+                    <table class="table vertical-scroll table-dark table-hover text-center" id="itemTable{{ loop.index }}">
                         <thead>
                         <tr>
                             {% for title in categorie.titles %}
@@ -42,6 +42,7 @@
         </div>
         <div class="col-sm-3 vertical">
             <span id="padding"></span>
+            <button type="button" class="talent" id="talent-offre" onclick="talent(this)">Offre et Demande</button>
             <div class="table-responsive" id="outputShop">
                 <table class="table vertical-scroll table-dark table-hover text-center" id="inventoryTable">
                     <thead>

@@ -16,4 +16,4 @@ rphystBP.register_blueprint(shopBP,url_prefix='/shop')
 
 @rphystBP.route("/")
 async def hello():
-    return redirect("/rphyst/loot") # à changer
+    return redirect("/rphyst/shop")

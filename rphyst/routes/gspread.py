@@ -50,6 +50,7 @@ class Sheet():
                     'Craft' in item.keys() and 
                     (not item['Niveau'] or int(item['Niveau'])<=int({info['Level']})) and
                     item['Type'] in [{info['TypeR']}] and 
+                    item['Région'] in [{info['RégionR']}, 'Partout', 'Toutes', ''] and
                     item['Rareté'] in [{info['RaretéR']}] and
                     item['Vente'] != 'Non'
                 """

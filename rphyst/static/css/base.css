@@ -80,6 +80,12 @@ body {
     z-index: 99;
 }
 
+#onglets p:hover,
+th:hover{
+    color:aliceblue;
+    cursor: pointer;
+}
+
 #onglets p.active{
     border-bottom: none;
     background-color: #212529; 
@@ -185,6 +191,25 @@ a:link { text-decoration: none; }
 a:visited { text-decoration: none; }
 a:hover { text-decoration: none; }
 a:active { text-decoration: none; }
+
+.talent{
+    background-color: #212529; /* Green */
+    color: white;
+    padding: 8px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: outset white;
+    margin-bottom:10px;
+}
+
+.talent-active{
+    background-color: #2E3438;
+    border: inset white;
+    color: gray;
+    box-shadow: inset 2px 2px 5px 2px black;
+}
 
 /* SCROLL BAR */
 

@@ -24,9 +24,9 @@ async def shop(shopkeeper=""):
     if not shopkeeper:
         return redirect("/")
 
-    lootTitles  = ["Loot","Valeur achat","Valeur reprise"]
-    consoTitles = ["Craft","Description","Valeur achat","Valeur reprise"]
-    equipTitles = ["Classe","Emplacement","Niveau","Equipement","Stat 1","Val 1","Stat 2","Val 2","Stat 3","Val 3","Stat 4","Val 4","Valeur achat","Valeur reprise"]
+    lootTitles  = ["Loot","Rareté","Valeur achat","Valeur reprise"]
+    consoTitles = ["Craft","Description","Rareté","Valeur achat","Valeur reprise"]
+    equipTitles = ["Equipement","Niveau","Classe","Emplacement","Stat 1","Val 1","Stat 2","Val 2","Stat 3","Val 3","Stat 4","Val 4","Rareté","Valeur achat","Valeur reprise"]
 
     lootQuery,consoQuery,equipQuery = sheet.getQueriesMarchand(shopkeeper)
 

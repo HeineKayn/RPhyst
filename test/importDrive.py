@@ -33,8 +33,8 @@ class Sheet():
         # loots = [item for item in self.sheet if 'Loot' in item.keys()]
         query = f'[item for item in self.sheet if {query}]'
         loots = eval(query)
-        for i,loot in enumerate(loots):
-            loots[i] = { key: loot[key] for key in attr }
+        # for i,loot in enumerate(loots):
+        #     loots[i] = { key: loot[key] for key in attr }
         return loots
 
 # -------
@@ -47,7 +47,7 @@ equipQuery = "'Equipement' in item.keys() and (not item['Niveau'] or int(item['N
 
 sheet = Sheet()
 
-res = sheet.getShop(lootQuery,["Loot"])
+res = sheet.getShop(equipQuery,["Loot"])
 # res = [x for x in res if x["Loot"] == "Pierre"]
 pprint(res)
 # sheet.getShop(consoQuery)

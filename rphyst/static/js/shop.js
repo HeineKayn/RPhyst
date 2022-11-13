@@ -1,28 +1,28 @@
 function search() {
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("searchInput");
-  filter = input.value.toUpperCase();
-  table = tables[currentIndex];
-
-  tr = table.getElementsByTagName("tr");
-  for (i = 1; i < tr.length; i++) {
-    tds = tr[i].getElementsByTagName("td");
-    var isContained = false;
-    for (var td of tds) {
-        if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                isContained = true
-            } 
-        }     
-    }  
-    if (isContained){
-        tr[i].style.display = "";
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("searchInput");
+    filter = input.value.toUpperCase();
+    table = tables[currentIndex];
+  
+    tr = table.getElementsByTagName("tr");
+    for (i = 1; i < tr.length; i++) {
+      tds = tr[i].getElementsByTagName("td");
+      var isContained = false;
+      for (var td of tds) {
+          if (td) {
+              txtValue = td.textContent || td.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  isContained = true
+              } 
+          }     
+      }  
+      if (isContained){
+          tr[i].style.display = "";
+      }
+      else{
+          tr[i].style.display = "none";
+      }
     }
-    else{
-        tr[i].style.display = "none";
-    }
-  }
 }
 
 function switchOnglet(index) {
@@ -30,6 +30,7 @@ function switchOnglet(index) {
 	    table.style.display = "none";
 	}
     tables[index].style.display = "block";
+    tables[index].getElementsByClassName("table")[0].style.width = "100%";
 
     for (var onglet of onglets) {
 	    onglet.classList.remove("active");
@@ -55,12 +56,23 @@ function createItem(nom,qt,prix){
 
 function buyShop(node,qt) {
     let inventory = document.getElementsByClassName("inventory");
-    let row = node.parentNode.parentNode.children;
-    let nom = row[0].textContent;
-    let prixAchat = row[row.length-3].textContent;
-    let prixReprise = row[row.length-2].textContent;
+    let row = node.parentNode.parentNode;
+    let rowChild = row.children
+
     var found = false;
 
+    let nom = rowChild[0].textContent;
+    let rareté = rowChild[rowChild.length-4].textContent;
+    let prixAchat = parseInt(rowChild[rowChild.length-3].textContent);
+    let prixReprise = parseInt(rowChild[rowChild.length-2].textContent);
+
+    if (talentOffre.classList.contains("talent-active")){
+        if (rareté == "Rare"){prixReprise += (Math.round(prixReprise*5/100))}
+        else if (rareté == "Unique"){prixReprise += (Math.round(prixReprise*10/100))}
+        else if (rareté == "Mythique"){prixReprise += (Math.round(prixReprise*15/100))}
+        else if (rareté == "Légendaire"){prixReprise += (Math.round(prixReprise*20/100))}
+    }
+    
     if (inventory.length){
         for (var item of inventory) {
             var [nameOld,qtOld,prixOld] = item.children;
@@ -120,10 +132,39 @@ function updateTot(){
     else {totalValue.style.color = "white";}
 }
 
+function talent(button){
+    if (button.classList.contains("talent-active")){
+        button.classList.remove("talent-active");
+    }
+    else{
+        button.classList.add("talent-active");
+    }
+}
+
+function banCol(colNames){
+    for (var colName of colNames) {
+        for (index = 0; index < tables.length; index++){
+            let ths = tables[index].getElementsByTagName("th");
+            var found = false;
+            for (i = 0; i < ths.length; i++) {
+                if (ths[i].textContent.includes(colName)){found = true; break}
+            }
+            if (found){
+                let trs = tables[index].getElementsByTagName("tr");
+                for (var tr of trs) {
+                    tr.children[i].style.display = "none";
+                }
+                // dataTables[index].column(i).visible(false);
+            }
+        }
+    }
+}
+
 var currentIndex = 0;
 var tables = document.getElementsByClassName("tableShop");
 var onglets = document.getElementById('onglets').children;
 var total = document.getElementById('totalShop');
+var talentOffre = document.getElementById('talent-offre');
 switchOnglet(currentIndex);
 
 $(document).ready(function () {
@@ -133,6 +174,8 @@ $(document).ready(function () {
         "lengthChange": false,
         "info":false
     });
+    banCol(["Rareté"]);
+    
     $('.dataTables_length').addClass('bs-select');
 });
 
