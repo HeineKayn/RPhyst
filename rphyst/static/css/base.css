@@ -9,7 +9,7 @@ body {
 }
 
 #containerPage {
-    height: max(500px,40vw);
+    height: max(500px, 40vw);
     padding-top: 2vw;
 }
 
@@ -46,11 +46,11 @@ body {
     height: 100%;
     width: 95%;
     border: 1px solid #ddd;
-    background-color: #212529; 
+    background-color: #212529;
 }
 
-.button-cell{
-    width:5vw;
+.button-cell {
+    width: 5vw;
 }
 
 #searchInput {
@@ -65,15 +65,15 @@ body {
     margin-bottom: 12px;
 }
 
-#onglets{
-    width:95%;
-    display:flex;
-    margin-bottom:-17px;
+#onglets {
+    width: 95%;
+    display: flex;
+    margin-bottom: -17px;
 }
 
-#onglets p{
+#onglets p {
     background-color: #131416;
-    color: #2e3438; 
+    color: #2e3438;
     padding: 7px;
     border: 1px solid #ddd;
     margin-right: -1px;
@@ -81,18 +81,18 @@ body {
 }
 
 #onglets p:hover,
-th:hover{
-    color:aliceblue;
+th:hover {
+    color: aliceblue;
     cursor: pointer;
 }
 
-#onglets p.active{
+#onglets p.active {
     border-bottom: none;
-    background-color: #212529; 
-    color:white;
+    background-color: #212529;
+    color: white;
 }
 
-.full-left{
+.full-left {
     width: 95%;
 }
 
@@ -103,52 +103,51 @@ th:hover{
     flex-direction: column;
 }
 
-#padding{
+#padding {
     height: 15%;
 }
 
-#outputShop{
+#outputShop {
     height: 88%;
     width: 85%;
     border: 1px solid #ddd;
-    background-color: #212529; 
+    background-color: #212529;
 }
 
-#outputShop table{
+#outputShop table {
     height: 100%;
 }
 
-#totalShop{
+#totalShop {
     width: 85%;
     margin: 0px;
     border: 1px solid #ddd;
-    color:white;
-    padding:5px;
-    background-color: #212529; 
+    color: white;
+    padding: 5px;
+    background-color: #212529;
     display: inherit;
 }
 
-#countTotal{
-    display:flex;
+#countTotal {
+    display: flex;
     align-items: center;
     width: 90%;
 }
 
-#totalValue{
-    margin-left:15px;
+#totalValue {
+    margin-left: 15px;
     font-weight: bold;
 }
 
-
-tr{
+tr {
     vertical-align: middle;
 }
 
-.dataTables_empty{
+.dataTables_empty {
     display: none;
 }
 
-#shopkeepChoiceBig{
+#shopkeepChoiceBig {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -161,25 +160,25 @@ tr{
     height: 60px;
     font-size: 30px;
     margin-bottom: 20px;
-    color:white;
+    color: white;
 }
 
-#updateBDD{
-    color: white; 
+#updateBDD {
+    color: white;
 }
 
-#shopkeepChoiceSmall{
-    display:flex;
+#shopkeepChoiceSmall {
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.marchands{
-    color:white;
+.marchands {
+    color: white;
     font-size: 30px;
     width: 200px;
     height: 60px;
-    background-color: #212529; 
+    background-color: #212529;
     font-style: normal;
     border: 1px solid #ddd;
     display: flex;
@@ -187,13 +186,25 @@ tr{
     align-items: center;
 }
 
-a:link { text-decoration: none; }
-a:visited { text-decoration: none; }
-a:hover { text-decoration: none; }
-a:active { text-decoration: none; }
+a:link {
+    text-decoration: none;
+}
 
-.talent{
-    background-color: #212529; /* Green */
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+.talent {
+    background-color: #212529;
+    /* Green */
     color: white;
     padding: 8px 15px;
     text-align: center;
@@ -201,31 +212,42 @@ a:active { text-decoration: none; }
     display: inline-block;
     font-size: 16px;
     border: outset white;
-    margin-bottom:10px;
+    margin-bottom: 10px;
 }
 
-.talent-active{
+.talent-active {
     background-color: #2E3438;
     border: inset white;
     color: gray;
     box-shadow: inset 2px 2px 5px 2px black;
 }
 
+.hide-me {
+    display: none;
+}
+
+
 /* SCROLL BAR */
 
+
 /* width */
+
 ::-webkit-scrollbar {
     width: 8px;
 }
 
+
 /* Track */
+
 ::-webkit-scrollbar-track {
-    background: #202225; 
+    background: #202225;
     border-radius: 10px;
 }
 
+
 /* Handle */
+
 ::-webkit-scrollbar-thumb {
-    background: rgb(15, 17, 19) ; 
+    background: rgb(15, 17, 19);
     border-radius: 10px;
 }
