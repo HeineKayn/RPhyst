@@ -143,11 +143,12 @@ function talent(button) {
             let prixReprise = parseInt(rowChild[3].textContent);
             let prixAchat = parseInt(rowChild[4].textContent);
             let rareté = rowChild[5].textContent;
+            let ratio = 0;
             if (qt < 0) {
                 if (button.classList.contains("talent-active")) {
-                    if (rareté == "Rare") { prixReprise += (Math.round(prixReprise * 5 / 100)) } else if (rareté == "Unique") { prixReprise += (Math.round(prixReprise * 10 / 100)) } else if (rareté == "Mythique") { prixReprise += (Math.round(prixReprise * 15 / 100)) } else if (rareté == "Légendaire") { prixReprise += (Math.round(prixReprise * 20 / 100)) }
+                    if (rareté == "Rare") { ratio = 5/100 } else if (rareté == "Unique") { ratio = 10/100 } else if (rareté == "Mythique") { ratio = 15/100 } else if (rareté == "Légendaire") { ratio = 20/100 }
                 }
-                rowChild[2].innerHTML = prixReprise * qt;
+                rowChild[2].innerHTML = Math.round((prixReprise + prixReprise*ratio) * qt);
             } else {
                 rowChild[2].innerHTML = prixAchat * qt;
             }
