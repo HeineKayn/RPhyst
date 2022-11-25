@@ -47,7 +47,9 @@ equipQuery = "'Equipement' in item.keys() and (not item['Niveau'] or int(item['N
 
 sheet = Sheet()
 
-res = sheet.getShop(equipQuery,["Loot"])
+lootTest = "'Loot' in item.keys()"
+
+res = sheet.getShop(lootTest,["Loot"])
 # res = [x for x in res if x["Loot"] == "Pierre"]
 pprint(res)
 # sheet.getShop(consoQuery)

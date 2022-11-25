@@ -13,7 +13,7 @@
                 <p onclick="switchOnglet(2)">Equip</p>
             </div>
 
-            {% for categorie in categories %}
+            {% for cat_index,categorie in categories %}
                 <div class="table-responsive tableShop"style="display: none;">
                     <table class="table vertical-scroll table-dark table-hover text-center" id="itemTable{{ loop.index }}">
                         <thead>
@@ -34,6 +34,21 @@
                                         <button type="button" class="btn btn-danger" id="moreShop" onclick="buyShop(this,1)">+</button>
                                     </td>
                                 </tr>
+                            {% endfor %}
+
+                            {% for miss in misses %}
+                                {% if loop.index0 == cat_index %}
+                                    {% for item in miss %}
+                                        <tr class="missing hide-me">
+                                            <td>{{ item[0] }}</td>
+                                            <td></td>
+                                            <td>{{ item[1:] }}</td>
+                                            {% for i in range(categorie.titles|length - 3) %}
+                                                <td></td>
+                                            {% endfor %}
+                                        </tr>
+                                    {% endfor %}
+                                {% endif %}
                             {% endfor %}
                         </tbody>
                     </table>

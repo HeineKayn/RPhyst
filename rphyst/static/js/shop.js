@@ -18,8 +18,19 @@ function search() {
         }
         if (isContained) {
             tr[i].style.display = "";
+            if (tr[i].classList.contains("missing")){
+                if (filter.length > 3 ){
+                    tr[i].classList.remove("hide-me");
+                }
+                else if (!tr[i].classList.contains("hide-me")){
+                    tr[i].classList.add("hide-me");
+                }
+            }
         } else {
             tr[i].style.display = "none";
+            if (tr[i].classList.contains("missing") && !tr[i].classList.contains("hide-me")){
+                tr[i].classList.add("hide-me");
+            }
         }
     }
 }

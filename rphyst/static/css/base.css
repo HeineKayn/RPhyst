@@ -226,6 +226,9 @@ a:active {
     display: none;
 }
 
+.missing>td{
+    background-color: #9B0000;
+}
 
 /* SCROLL BAR */
 

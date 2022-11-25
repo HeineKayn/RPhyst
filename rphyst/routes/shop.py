@@ -25,8 +25,8 @@ async def shop(shopkeeper=""):
         return redirect("/")
 
     lootTitles  = ["Loot","Rareté","Valeur achat","Valeur reprise"]
-    consoTitles = ["Craft","Description","Rareté","Valeur achat","Valeur reprise"]
-    equipTitles = ["Equipement","Niveau","Classe","Emplacement","Stat 1","Val 1","Stat 2","Val 2","Stat 3","Val 3","Stat 4","Val 4","Rareté","Valeur achat","Valeur reprise"]
+    consoTitles = ["Craft","Rareté","Description","Valeur achat","Valeur reprise"]
+    equipTitles = ["Equipement","Rareté","Niveau","Classe","Emplacement","Stat 1","Val 1","Stat 2","Val 2","Stat 3","Val 3","Stat 4","Val 4","Valeur achat","Valeur reprise"]
 
     lootQuery,consoQuery,equipQuery = sheet.getQueriesMarchand(shopkeeper)
 
@@ -35,8 +35,10 @@ async def shop(shopkeeper=""):
     categories += [sheet.getShop(consoTitles,consoQuery)]
     categories += [sheet.getShop(equipTitles,equipQuery)]
 
+    misses = sheet.getMissingMarchand(shopkeeper)
+
     for categorie in categories:
         for i,_ in enumerate(categorie["titles"]):
             categorie["titles"][i] += " ↕"
         categorie["titles"]  += ["Achat"]
-    return await render_template('shop.html',categories=categories)
+    return await render_template('shop.html',categories=enumerate(categories),misses=misses)
