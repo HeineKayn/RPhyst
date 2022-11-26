@@ -74,13 +74,13 @@ class Sheet():
             if title in item.keys() and item[title]:
                 missing_item = []
                 if item['Niveau'] and int(item['Niveau'])>int(info['Level']):
-                    missing_item.append("Lv "+ str(item['Niveau']))
+                    missing_item.append("Niveau")
 
                 for critere in criteres :
                     item_critere = item[critere[:-1]]
                     info_critere = info[critere].split(",") + ['Partout', 'Toutes', 'Tous', '/', '']
                     if item_critere not in info_critere:
-                        missing_item.append(item_critere)
+                        missing_item.append(critere[:-1])
 
                 if len(missing_item) > 0 :
                     missing_item = [item[title]] + missing_item
