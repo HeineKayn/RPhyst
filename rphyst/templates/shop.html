@@ -1,8 +1,8 @@
 {% extends "baseRPhyst.html" %} {% block content %}
 
 <div class="container-fluid" id="containerPage">
-    <div class="row">
-        <div class="col-sm-9 vertical">
+    <div class="row fit">
+        <div class="col-sm-9 fit vertical">
             <div class="full-left">
                 <input type="text" id="searchInput" placeholder="Recherche d'item" onkeyup="search()">
             </div>
@@ -55,7 +55,7 @@
                 </div>
             {% endfor %}
         </div>
-        <div class="col-sm-3 vertical">
+        <div class="col-sm-3 fit vertical">
             <span id="padding"></span>
             <button type="button" class="talent" id="talent-offre" onclick="talent(this)">Offre et Demande</button>
             <div class="table-responsive" id="outputShop">

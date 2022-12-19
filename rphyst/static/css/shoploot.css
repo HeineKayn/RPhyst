@@ -1,0 +1,112 @@
+#inputLoot,
+#outputLoot,
+#middleLoot {
+    height: 100%;
+    width: 80%;
+}
+
+#outputLoot {
+    background-color: white;
+}
+
+#nbLoot {
+    margin: 10px;
+}
+
+#outputShop {
+    height: 88%;
+    width: 85%;
+    border: 1px solid #ddd;
+    background-color: #212529;
+}
+
+#outputShop table {
+    height: 100%;
+}
+
+#totalShop {
+    width: 85%;
+    margin: 0px;
+    border: 1px solid #ddd;
+    color: white;
+    padding: 5px;
+    background-color: #212529;
+    display: inherit;
+}
+
+#countTotal {
+    display: flex;
+    align-items: center;
+    width: 90%;
+}
+
+#totalValue {
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+#shopkeepChoiceBig {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#shopkeepChoiceBig button {
+    width: 300px;
+    height: 60px;
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+#updateBDD {
+    color: white;
+}
+
+#shopkeepChoiceSmall {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.marchands {
+    color: white;
+    font-size: 30px;
+    width: 200px;
+    height: 60px;
+    background-color: #212529;
+    font-style: normal;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.talent {
+    background-color: #212529;
+    /* Green */
+    color: white;
+    padding: 8px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: outset white;
+    margin-bottom: 10px;
+}
+
+.talent-active {
+    background-color: #2E3438;
+    border: inset white;
+    color: gray;
+    box-shadow: inset 2px 2px 5px 2px black;
+}
+
+.fit{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}

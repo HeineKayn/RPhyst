@@ -12,6 +12,9 @@ rphystBP.register_blueprint(lootBP,url_prefix='/loot')
 from .routes.shop import shopBP
 rphystBP.register_blueprint(shopBP,url_prefix='/shop')
 
+from .routes.combat import combatBP
+rphystBP.register_blueprint(combatBP,url_prefix='/combat')
+
 # ---------------
 
 @rphystBP.route("/")

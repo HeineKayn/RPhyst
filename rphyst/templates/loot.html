@@ -1,16 +1,16 @@
 {% extends "baseRPhyst.html" %} {% block content %}
 
 <div class="container-fluid" id="containerPage">
-    <div class="row">
-        <div class="col-sm">
+    <div class="row fit">
+        <div class="col-sm fit">
             <textarea id="inputLoot" onclick="this.value=''" placeholder="Liste des items à looter..."></textarea>
         </div>
-        <div class="col-sm vertical">
+        <div class="col-sm fit vertical">
                 <span class="arrow">&#8594;</span>
                 <input type="number" id="nbLoot" min="0" max="1000" value="0" onclick="this.value=''">
                 <button type="button" class="btn btn-light" id="confirmLoot" onclick="rollLoots()">Confirm</button>
         </div>
-        <div class="col-sm">
+        <div class="col-sm fit">
             <textarea id="outputLoot" placeholder="Résultats..."></textarea>
         </div>
     </div>
