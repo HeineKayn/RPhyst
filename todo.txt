@@ -1,0 +1,5 @@
+- Esthéthique générale du site : OK
+- Début backend, essayer de mettre des vraies données pour utilisateurs :
+- Créer login + interface admin (pouvoir tout edit) :
+- Faire système de combat :
+- Afficher l'historique :
