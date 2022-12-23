@@ -15,6 +15,9 @@ rphystBP.register_blueprint(shopBP,url_prefix='/shop')
 from .routes.combat import combatBP
 rphystBP.register_blueprint(combatBP,url_prefix='/combat')
 
+from .routes.loginPhyst import loginPhystBP
+rphystBP.register_blueprint(loginPhystBP,url_prefix='/login')
+
 # ---------------
 
 @rphystBP.route("/")

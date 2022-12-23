@@ -10,11 +10,14 @@ class Sheet():
         creds = ServiceAccountCredentials.from_json_keyfile_name('googleCreds.json', scope)
         client = gspread.authorize(creds)
 
-        self.client = client.open('Loot et artisanat')
-        self.sheetLoot = self.client.get_worksheet(0)
-        self.sheetEquip = self.client.get_worksheet(1)
-        self.sheetConso = self.client.get_worksheet(2)
-        self.sheetMarchand = self.client.get_worksheet(3)
+        self.lootPage = client.open('Loot et artisanat')
+        self.sheetLoot = self.lootPage.get_worksheet(0)
+        self.sheetEquip = self.lootPage.get_worksheet(1)
+        self.sheetConso = self.lootPage.get_worksheet(2)
+        self.sheetMarchand = self.lootPage.get_worksheet(3)
+
+        self.bddPage = client.open('Fiches et BDD')
+        self.sheetStats = self.bddPage.get_worksheet(2)
 
         self.sheet = []
         for sheet_chunk in [self.sheetLoot, self.sheetEquip, self.sheetConso] :
@@ -115,6 +118,10 @@ class Sheet():
         queries += [self.getQueryConso(info)]
         queries += [self.getQueryEquip(info)]
         return queries
+
+    def getStats(self,name):
+        infos = self.sheetStats.get_all_records()
+        return [info for info in infos if info["Personage"] == name][0]
 
     def refresh(self):
         self.__init__()

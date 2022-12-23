@@ -10,11 +10,14 @@ client = gspread.authorize(creds)
 class Sheet():
 
     def __init__(self):
-        self.client = client.open('Loot et artisanat')
-        self.sheetLoot = self.client.get_worksheet(0)
-        self.sheetEquip = self.client.get_worksheet(1)
-        self.sheetConso = self.client.get_worksheet(2)
-        self.sheetMarchand = self.client.get_worksheet(3)
+        self.lootPage = client.open('Loot et artisanat')
+        self.sheetLoot = self.lootPage.get_worksheet(0)
+        self.sheetEquip = self.lootPage.get_worksheet(1)
+        self.sheetConso = self.lootPage.get_worksheet(2)
+        self.sheetMarchand = self.lootPage.get_worksheet(3)
+
+        self.bddPage = client.open('Fiches et BDD')
+        self.sheetStats = self.bddPage.get_worksheet(2)
 
         self.sheet = []
         for sheet_chunk in [self.sheetLoot, self.sheetEquip, self.sheetConso] :
@@ -36,30 +39,13 @@ class Sheet():
         # for i,loot in enumerate(loots):
         #     loots[i] = { key: loot[key] for key in attr }
         return loots
+        
+    def getStats(self,name):
+        infos = self.sheetStats.get_all_records()
+        info = [info for info in infos if info["Personage"] == name][0]
+        print(vars(sheet))
 
 # -------
 
-# Le frontend créera un string (requete) qu'il enverra au back
-# Profil de Cebo par exemple
-lootQuery =  "'Loot' in item.keys() and (not item['Niveau'] or int(item['Niveau'])<4) and item['Région'] in ['Shurima', 'Toutes',''] and item['Zone'] in ['Grand Sai', 'Partout',''] and item['Marchand'] in ['', 'Cebo']"
-consoQuery = "'Craft' in item.keys() and (not item['Level'] or int(item['Level'])<4) and item['Type'] in ['Alchimie','Couture']"
-equipQuery = "'Equipement' in item.keys() and (not item['Niveau'] or int(item['Niveau'])<=4)"# and item['Région'] in ['Shurima', 'Toutes',''] and item['Zone'] in ['Grand Sai', 'Partout',''] and item['Vente']!='Non'"
-
 sheet = Sheet()
-
-lootTest = "'Loot' in item.keys()"
-
-res = sheet.getShop(lootTest,["Loot"])
-# res = [x for x in res if x["Loot"] == "Pierre"]
-pprint(res)
-# sheet.getShop(consoQuery)
-# sheet.getShop(equipQuery)
-
-# sheet.test()
-
-# pprint(sheet.getMarchands())
-
-
-# Classement des items fait par frontend (script charon)
-# Sert à rien de formater, sera fait en front par le django
-# Page exprès pour édit les profils de marchand
+sheet.getStats("Brouss")
