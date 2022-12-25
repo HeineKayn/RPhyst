@@ -20,8 +20,14 @@ class Partie():
         self.joueurs = []
         self.historique = []
 
+    def getJoueur(self,jname):
+        return [j for j in self.joueurs if j.nom == jname][0]
+
     def addJoueur(self,nom):
         self.joueurs.append(Joueur(nom))
+
+    def removeJoueur(self,nom):
+        self.joueurs.remove(self.getJoueur(nom))
 
 # p = Partie()
 # p.addJoueur("Brouss")

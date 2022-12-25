@@ -17,8 +17,5 @@ PDV Admin
 PDV User
 - SI t'es connecté ET en jeu alors t'as ton panneau en bas qui s'affiche
 
-1) Ajouter un personnage -> aller chercher dans la bdd et créer un objet 
 2) Supprimer un personnage 
 3) Editer les valeurs 
-
-4) Chaque demi seconde requête au serveur pour savoir l'état de la partie -> update page en conséquence
