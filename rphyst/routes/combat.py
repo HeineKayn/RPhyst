@@ -1,4 +1,5 @@
 from quart import Blueprint, request, render_template
+from quart_auth import *
 from .partie import *
 import json
 
@@ -14,13 +15,17 @@ async def combat():
 @combatBP.route('/updateFront', methods=['POST'])
 async def combat_update_front():
     dic_partie = json.loads(json.dumps(partie, default=lambda o: getattr(o, '__dict__', str(o))))
-    return {"content" : dic_partie}
+    return {"content" : dic_partie, "permission" : current_user.auth_id}
 
 @combatBP.route('/updateBack', methods=['POST'])
 async def combat_update_back():
     req = dict(await request.form)
-    action,type,value = req["action"],req["type"],req["value"]
-    if "remove" in action :
-        if "perso" in type :
-            partie.removeJoueur(value)
+    action,value1,value2 = req["action"],req["value1"],req["value2"]
+    if current_user.auth_id == 1 :
+        if action == "remove_perso" : partie.removeJoueur(value1)
+        if action == "valueTour" and value1.isdigit() : partie.tour = int(value1)
+        if action == "valueIni"  and value1.isdigit() : partie.getJoueur(value2).init = int(value1) 
+        if action == "valueHP"   and value1.isdigit() : 
+            joueur = partie.getJoueur(value2)
+            joueur.hp = min(int(value1),joueur.stats["HP"])
     return {}
