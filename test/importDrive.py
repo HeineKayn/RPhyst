@@ -48,4 +48,7 @@ class Sheet():
 # -------
 
 sheet = Sheet()
-sheet.getStats("Brouss")
+# sheet.getStats("Brouss")
+
+# a = sheet.bddPage.get_worksheet(8).get_all_records()
+# print(a)

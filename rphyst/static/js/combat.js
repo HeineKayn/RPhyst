@@ -17,17 +17,19 @@ function updateGameFront() {
                 playersBack.push(player["nom"])
                 if (!players.includes(player["nom"])) {
                     addPlayerFront(player);
-                    // Ajouter les spells
+                    addSpellFront(player);
                     editablesUpdate();
                 } else {
-                    var playerRow = document.getElementById(player["nom"]);
-                    editPlayer(playerRow, player);
-                    // editer les spells
+                    editPlayer(player);
+                    editSpell(player);
                 }
             }
             // Check for removed players 
             for (var player of players) {
-                if (!playersBack.includes(player)) { removePlayerFront(player); }
+                if (!playersBack.includes(player)) {
+                    removePlayerFront(player);
+                    removeSpellFront(player);
+                }
             }
         });
     } else { updateDelayer -= 1 };
@@ -42,42 +44,70 @@ function updateGameBack(action, value1, value2 = 0) {
     })
 }
 
-function editPlayer(node, stats) {
-    node.children[0].children[1].innerHTML = stats["init"];
-    node.children[1].children[0].src = stats["stats"]["Image"];
-    node.children[2].children[0].children[0].style.width = Math.round(stats["hp"] / stats["stats"]["HP"] * 100) + "%";
-    node.children[2].children[0].children[0].innerHTML = stats["hp"];
+function editPlayer(stats) {
+    var node = templatePlayer.parentNode.querySelector("[perso=" + CSS.escape(stats["nom"]) + "]");
+    node.children[1].children[1].innerHTML = stats["init"];
+    node.children[2].children[0].src = stats["stats"]["Image"];
+    node.children[3].children[0].children[0].style.width = Math.round(stats["hp"] / stats["stats"]["HP"] * 100) + "%";
+    node.children[3].children[0].children[0].innerHTML = stats["hp"];
 }
 
 function addPlayerFront(player) {
     var clone = templatePlayer.cloneNode(true);
-    clone.setAttribute('id', player["nom"]);
+    clone.setAttribute("perso", player["nom"]);
     clone.classList.remove("template");
-    editPlayer(clone, player);
     players.push(player["nom"]);
     templatePlayer.after(clone);
+    editPlayer(player);
 }
 
 function removePlayerFront(name) {
-    var playerRow = document.getElementById(name);
+    var node = templatePlayer.parentNode.querySelector("[perso=" + CSS.escape(stats["nom"]) + "]");
     players.pop(players.indexOf(name));
-    playerRow.remove()
+    node.remove()
 }
 
-function selectPlayer(node) {
-    if (selectedPlayer != node.id) {
-        if ((permission == 1) ||
-            (permission == 2 && node.id == "Janin") ||
-            (permission == 3 && node.id == "Couvercle") ||
-            (permission == 4 && node.id == "Brouss")) {
+function removeSpellFront(name) {
+    var node = templateSpells.parentNode.querySelector("[perso=" + CSS.escape(stats["nom"]) + "]");
+    node.remove()
+}
+
+function editSpell(stats) {
+    var node = templateSpells.parentNode.querySelector("[perso=" + CSS.escape(stats["nom"]) + "]");
+    // node.children[0].children[1].innerHTML = stats["init"];
+    // node.children[1].children[0].src = stats["stats"]["Image"];
+    // node.children[2].children[0].children[0].style.width = Math.round(stats["hp"] / stats["stats"]["HP"] * 100) + "%";
+    // node.children[2].children[0].children[0].innerHTML = stats["hp"];
+}
+
+
+function addSpellFront(player) {
+    var clone = templateSpells.cloneNode(true);
+    clone.setAttribute("perso", player["nom"]);
+    clone.classList.remove("template");
+    templateSpells.after(clone);
+    editSpell(player);
+}
+
+function selectPlayer(playerTable) {
+    var name = playerTable.getAttribute("perso");
+    if (selectedPlayer != name) {
+        if ((permission == 1) || true ||
+            (permission == 2 && name == "Janin") ||
+            (permission == 3 && name == "Couvercle") ||
+            (permission == 4 && name == "Brouss")) {
 
             if (selectedPlayer != "") {
-                document.getElementById(selectedPlayer).classList.remove("perso_actif");
+                var oldPlayer = document.getElementsByClassName("perso_actif")[0];
+                oldPlayer.classList.remove('perso_actif');
+                var oldSpell = document.getElementsByClassName("spell_actif")[0];
+                oldSpell.classList.remove('spell_actif');
             }
-            node.classList.add("perso_actif");
-            selectedPlayer = node.id;
-
-            // Display le bon set de spell
+            playerTable.classList.add("perso_actif");
+            var spellTable = templateSpells.parentNode.querySelector("[perso=" + CSS.escape(name) + "]");
+            // PROBLEME ICI parce que y'a pas de div 
+            spellTable.classList.add("spell_actif");
+            selectedPlayer = name;
         }
     }
 }
@@ -90,9 +120,9 @@ function typeEditable(event) {
     updateDelayer = delayerTime;
     if (event.key == 'Enter') {
         event.target.innerText = event.target.innerText.replace(/(\r\n|\n|\r)/gm, "");
-        updateGameBack(event.target.id,
+        updateGameBack(event.target.getAttribute("perso"),
             event.target.innerText,
-            event.target.closest(".row").id);
+            event.target.closest(".row").getAttribute("perso"));
     }
 }
 
