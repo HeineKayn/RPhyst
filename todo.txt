@@ -1,21 +1,19 @@
 - Esthéthique générale du site : OK
-- Début backend, essayer de mettre des vraies données pour utilisateurs :
-- Créer login + interface admin (pouvoir tout edit) :
+- Début backend, essayer de mettre des vraies données pour utilisateurs : OK
+- Créer login + interface admin (pouvoir tout edit) : OK
 - Faire système de combat :
 - Afficher l'historique :
 
 PDV Général :
-- A chaque action personne -> envoie requete -> modif partie en backend
-- Toutes les dixieme de seconde la page de chaque client fait une requete pour se refresh
+- A chaque action personne -> envoie requete -> modif partie en backend OK
+- Toutes les dixieme de seconde la page de chaque client fait une requete pour se refresh OK
 - Tous les trucs en bas sont là mais pas affichés
 
 PDV Admin
-- L'admin peut ajouter des gens à une partie
+- L'admin peut ajouter des gens à une partie OK
 - Admin peut cliquer sur "Rajouter perso" et ça lui permet de choisir parmi un truc dans une liste
 - Admin "Joue" les mobs
 
 PDV User
 - SI t'es connecté ET en jeu alors t'as ton panneau en bas qui s'affiche
 
-2) Supprimer un personnage 
-3) Editer les valeurs 

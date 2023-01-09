@@ -119,9 +119,9 @@ class Sheet():
         queries += [self.getQueryEquip(info)]
         return queries
 
-    def getStats(self,name):
-        infos = self.sheetStats.get_all_records()
-        return [info for info in infos if info["Personage"] == name][0]
+    def getStats(self):
+        stats = self.sheetStats.get_all_records()[1:]
+        return [stat for stat in stats if stat['Personage']]
 
     def refresh(self):
         self.__init__()

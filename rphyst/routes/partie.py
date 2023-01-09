@@ -4,11 +4,11 @@ sheet = Sheet()
 
 class Joueur():
     
-    def __init__(self,nom):
+    def __init__(self,nom,stats):
         self.nom = nom
         self.pending = []
         self.init = randint(0,100)
-        self.stats = sheet.getStats(self.nom)
+        self.stats = stats
         self.hp   = self.stats["HP"]
         self.mana = self.stats["MANA"]
         self.ress = self.stats["RESS"]
@@ -19,12 +19,19 @@ class Partie():
         self.tour = 0
         self.joueurs = []
         self.historique = []
+        self.allStats = sheet.getStats()
 
     def getJoueur(self,jname):
-        return [j for j in self.joueurs if j.nom == jname][0]
+        j = [j for j in self.joueurs if j.nom == jname]
+        if j : return j[0]
+        else : return None
+
+    def getAllProfiles(self):
+        return [stat["Personage"] for stat in self.allStats]
 
     def addJoueur(self,nom):
-        self.joueurs.append(Joueur(nom))
+        stats = [stat for stat in self.allStats if stat["Personage"] == nom][0]
+        self.joueurs.append(Joueur(nom,stats))
 
     def removeJoueur(self,nom):
         self.joueurs.remove(self.getJoueur(nom))

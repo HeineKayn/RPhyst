@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Secular+One&family=Unbounded:wght@300&display=swap');
-
 body {
     background-color: #2e3438;
     color: rgb(212, 212, 212);
@@ -86,8 +85,6 @@ th:hover {
     height: 15%;
 }
 
-
-
 tr {
     vertical-align: middle;
 }
@@ -95,8 +92,6 @@ tr {
 .dataTables_empty {
     display: none;
 }
-
-
 
 a:link {
     text-decoration: none;
@@ -118,9 +113,15 @@ a:active {
     display: none;
 }
 
-.missing>td{
+.missing>td {
     background-color: #9B0000;
 }
+
+.log {
+    position: absolute;
+    right: 0px;
+}
+
 
 /* SCROLL BAR */
 

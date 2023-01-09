@@ -17,12 +17,13 @@
 
     <!-- Fontawesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js" integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
 
     <link rel="shortcut icon" type="image/x-icon" href="/rphyst/static/image/icons/icone_site.ico">
     <link rel="stylesheet" href="/rphyst/static/css/base.css" />
     <link rel="stylesheet" href="/rphyst/static/css/base_mobile.css" />
-    <link rel="stylesheet" href="/rphyst/static/css/shoploot.css"/>
+    <link rel="stylesheet" href="/rphyst/static/css/shoploot.css" />
     <title>Outils Sentinelles</title>
     <link rel="icon" href="/rphyst/static/image/icons/icone_site.ico" />
 </head>
@@ -41,7 +42,7 @@
 
                     <li class="nav-item">
                         <a class="navbar-brand" href="/rphyst/loot">
-                            <i class="fa-solid fa-gift"></i> <span>Loot</span> 
+                            <i class="fa-solid fa-gift"></i> <span>Loot</span>
                         </a>
                     </li>
 
@@ -57,17 +58,17 @@
                         </a>
                     </li>
 
-                    <li class="nav-item">
+                    <li class="nav-item log">
                         {% if not current_user.is_authenticated %}
-                            <a class="navbar-brand" href="/rphyst/login">
-                                <i class="fa-solid fa-right-to-bracket"></i> <span>Login</span>
-                            </a>
+                        <a class="navbar-brand" href="/rphyst/login">
+                            <i class="fa-solid fa-right-to-bracket"></i> <span>Login</span>
+                        </a>
                         {% else %}
-                            <a class="navbar-brand" href="/rphyst/login/logout">
-                                <i class="fa-solid fa-right-from-bracket"></i> <span>Logout</span>
-                            </a>
+                        <a class="navbar-brand" href="/rphyst/login/logout">
+                            <i class="fa-solid fa-right-from-bracket"></i> <span>Logout</span>
+                        </a>
                         {% endif %}
-                        
+
                     </li>
 
                 </ul>

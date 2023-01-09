@@ -5,18 +5,18 @@ h1 {
     text-shadow: rgb(0, 0, 0) 2px 0px 0px, rgb(0, 0, 0) 1.75517px 0.958851px 0px, rgb(0, 0, 0) 1.0806px 1.68294px 0px, rgb(0, 0, 0) 0.141474px 1.99499px 0px, rgb(0, 0, 0) -0.832294px 1.81859px 0px, rgb(0, 0, 0) -1.60229px 1.19694px 0px, rgb(0, 0, 0) -1.97998px 0.28224px 0px, rgb(0, 0, 0) -1.87291px -0.701566px 0px, rgb(0, 0, 0) -1.30729px -1.5136px 0px, rgb(0, 0, 0) -0.421592px -1.95506px 0px, rgb(0, 0, 0) 0.567324px -1.91785px 0px, rgb(0, 0, 0) 1.41734px -1.41108px 0px, rgb(0, 0, 0) 1.92034px -0.558831px 0px;
 }
 
-h1 span{
-    color : #198754;
+h1 span {
+    color: #198754;
 }
 
-.combatTable{
+.combatTable {
     margin: 10px;
     border: 1px solid #ddd;
     background-color: #212529;
     width: 95%;
 }
 
-#playerTable{
+#playerTable {
     height: 300px;
     display: flex;
     flex-direction: row;
@@ -24,29 +24,29 @@ h1 span{
     overflow-x: hidden;
 }
 
-#playerTable .row{
+#playerTable .row {
     align-items: center;
-    width :50%;
+    width: 50%;
     margin-right: 12px;
     margin-top: 15px;
 }
 
-.perso_actif{
-    background: linear-gradient(#212529 15%, white,#212529 85%);
+.perso_actif {
+    background: linear-gradient(#212529 15%, white, #212529 85%);
     backdrop-filter: blur(10px);
 }
 
-.icone_perso{
+.icone_perso {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.icone_perso img{
-    width:50px;
-    height:50px;
+.icone_perso img {
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    position:absolute;
+    position: absolute;
 }
 
 .btn-remove {
@@ -55,54 +55,57 @@ h1 span{
     z-index: 99;
 }
 
-img:hover + .btn-remove, .btn-remove:hover{
-    display: inline-block;
+img:hover+.btn-remove,
+.btn-remove:hover {
+    display: flex;
 }
 
-
-.icone_spell img{
+.icone_spell img {
     z-index: 10000;
 }
-.icone_spell img:hover{
+
+.icone_spell img:hover {
     cursor: grab;
 }
 
-.vignette{
+.vignette {
     border-radius: 50%;
-    width:30px;
-    height:30px;
+    width: 30px;
+    height: 30px;
 }
 
-.fullspell{
+.fullspell {
     margin: 10px;
     background-color: yellow;
-    width:50px;
-
+    width: 50px;
 }
 
-.fullspell img{
-    width:50px;
-    height:50px;
+.fullspell img {
+    width: 50px;
+    height: 50px;
 }
 
-.phy{
+.phy {
     border: 1px solid red;
 }
-.int{
+
+.int {
     border: 1px solid yellow;
 }
-.agi{
+
+.agi {
     border: 1px solid green;
 }
-.mag{
+
+.mag {
     border: 1px solid blue;
 }
 
-.ini{
+.ini {
     direction: rtl;
 }
 
-.ini div{
+.ini div {
     margin-top: -32px;
     margin-right: -15px;
     z-index: 99;
@@ -111,25 +114,25 @@ img:hover + .btn-remove, .btn-remove:hover{
 }
 
 .ini img {
-    width:40px;
+    width: 40px;
     margin-right: -20px;
 }
 
-.spellTable{
+.spellTable {
     height: 300px;
 }
 
-.persoSpells{
+.persoSpells {
     margin-top: 10px;
 }
 
-.persoSpells span{
+.persoSpells span {
     display: flex;
     flex-wrap: wrap;
 }
 
-.persoControl{
-    margin-top: 10px; 
+.persoControl {
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -148,23 +151,50 @@ img:hover + .btn-remove, .btn-remove:hover{
     height: 200px;
 }
 
-.persoStats row{
+.persoStats row {
     margin-top: 10px;
     display: flex;
 }
 
-.persoStats row div{
+.persoStats row div {
     display: flex;
     justify-content: center;
     font-size: 1.5em;
-    text-shadow: rgb(0, 0, 0) 2px 0px 0px, rgb(0, 0, 0) 1.75517px 0.958851px 0px, rgb(0, 0, 0) 1.0806px 1.68294px 0px, rgb(0, 0, 0) 0.141474px 1.99499px 0px, rgb(0, 0, 0) -0.832294px 1.81859px 0px, rgb(0, 0, 0) -1.60229px 1.19694px 0px, rgb(0, 0, 0) -1.97998px 0.28224px 0px, rgb(0, 0, 0) -1.87291px -0.701566px 0px, rgb(0, 0, 0) -1.30729px -1.5136px 0px, rgb(0, 0, 0) -0.421592px -1.95506px 0px, rgb(0, 0, 0) 0.567324px -1.91785px 0px, rgb(0, 0, 0) 1.41734px -1.41108px 0px, rgb(0, 0, 0) 1.92034px -0.558831px 0px;}
+    text-shadow: rgb(0, 0, 0) 2px 0px 0px, rgb(0, 0, 0) 1.75517px 0.958851px 0px, rgb(0, 0, 0) 1.0806px 1.68294px 0px, rgb(0, 0, 0) 0.141474px 1.99499px 0px, rgb(0, 0, 0) -0.832294px 1.81859px 0px, rgb(0, 0, 0) -1.60229px 1.19694px 0px, rgb(0, 0, 0) -1.97998px 0.28224px 0px, rgb(0, 0, 0) -1.87291px -0.701566px 0px, rgb(0, 0, 0) -1.30729px -1.5136px 0px, rgb(0, 0, 0) -0.421592px -1.95506px 0px, rgb(0, 0, 0) 0.567324px -1.91785px 0px, rgb(0, 0, 0) 1.41734px -1.41108px 0px, rgb(0, 0, 0) 1.92034px -0.558831px 0px;
+}
 
-.template{
+.template {
     display: none;
 }
 
+.dropdown-menu {
+    max-height: 100px;
+    overflow-x: auto;
+    font-size: 0.8vw;
+    columns: 2;
+}
+
+.dropdown button {
+    background-color: transparent;
+    border: none;
+}
+
+.dropdown ::after {
+    display: none;
+}
+
+#add_player button svg {
+    font-size: 2vw;
+    color: rgb(152, 152, 152);
+}
+
+#add_player button svg:hover {
+    color: rgb(212, 212, 212);
+}
+
+
 /* -- */
 
-#histoTable{
+#histoTable {
     height: 100%;
 }
