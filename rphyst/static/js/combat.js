@@ -1,4 +1,5 @@
 var players = []
+var selectedPlayer = ""
 var permission = 0
 var updateDelayer = 0
 let delayerTime = 2
@@ -7,19 +8,21 @@ function updateGameFront() {
     if (updateDelayer < 1) {
         $.post('/rphyst/combat/updateFront').done(function(response) {
             permission = response["permission"]
-            tours.innerHTML = response["content"]["tour"];
+            tours.innerHTML = response["partie"]["tour"];
 
             // Check for new players
             // Update existing
             var playersBack = []
-            for (var player of response["content"]["joueurs"]) {
+            for (var player of response["partie"]["joueurs"]) {
                 playersBack.push(player["nom"])
                 if (!players.includes(player["nom"])) {
                     addPlayerFront(player);
+                    // Ajouter les spells
                     editablesUpdate();
                 } else {
                     var playerRow = document.getElementById(player["nom"]);
                     editPlayer(playerRow, player);
+                    // editer les spells
                 }
             }
             // Check for removed players 
@@ -59,6 +62,24 @@ function removePlayerFront(name) {
     var playerRow = document.getElementById(name);
     players.pop(players.indexOf(name));
     playerRow.remove()
+}
+
+function selectPlayer(node) {
+    if (selectedPlayer != node.id) {
+        if ((permission == 1) ||
+            (permission == 2 && node.id == "Janin") ||
+            (permission == 3 && node.id == "Couvercle") ||
+            (permission == 4 && node.id == "Brouss")) {
+
+            if (selectedPlayer != "") {
+                document.getElementById(selectedPlayer).classList.remove("perso_actif");
+            }
+            node.classList.add("perso_actif");
+            selectedPlayer = node.id;
+
+            // Display le bon set de spell
+        }
+    }
 }
 
 function addPlayerBack(name) { updateGameBack("add_perso", name) }

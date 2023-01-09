@@ -13,6 +13,8 @@ class Joueur():
         self.mana = self.stats["MANA"]
         self.ress = self.stats["RESS"]
 
+        # AVOIR un self.spells
+
 class Partie():
 
     def __init__(self):
