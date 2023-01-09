@@ -15,6 +15,9 @@ class Joueur():
 
         # AVOIR un self.spells
 
+    def __str__ (self):
+        return self.nom
+
 class Partie():
 
     def __init__(self):
@@ -32,11 +35,16 @@ class Partie():
         return [stat["Personage"] for stat in self.allStats]
 
     def addJoueur(self,nom):
+        nbExistant =  len([j for j in self.joueurs if nom in j.nom]) + 1
         stats = [stat for stat in self.allStats if stat["Personage"] == nom][0]
+        if nbExistant > 1 : nom += " " + str(nbExistant)
         self.joueurs.append(Joueur(nom,stats))
 
     def removeJoueur(self,nom):
         self.joueurs.remove(self.getJoueur(nom))
+
+    def __str__ (self):
+        return " ".join(str(self.joueurs))
 
 # p = Partie()
 # p.addJoueur("Brouss")

@@ -71,8 +71,15 @@ img:hover+.btn-remove,
 
 .fullspell {
     margin: 10px;
-    background-color: yellow;
     width: 50px;
+}
+
+.fullspell.attack{
+    background-color: red;
+}
+
+.fullspell.dodge{
+    background-color: yellow;
 }
 
 .fullspell img {
@@ -173,12 +180,12 @@ img:hover+.btn-remove,
     height: 200px;
 }
 
-.persoStats row {
+.persoStats .row {
     margin-top: 10px;
     display: flex;
 }
 
-.persoStats row div {
+.persoStats .row div {
     display: flex;
     justify-content: center;
     font-size: 1.5em;
@@ -190,10 +197,9 @@ img:hover+.btn-remove,
 }
 
 .dropdown-menu {
-    max-height: 100px;
-    overflow-x: auto;
+    max-height: 200px;
+    overflow-y: scroll;
     font-size: 0.8vw;
-    columns: 2;
 }
 
 .dropdown button {

@@ -62,13 +62,14 @@ function addPlayerFront(player) {
 }
 
 function removePlayerFront(name) {
-    var node = templatePlayer.parentNode.querySelector("[perso=" + CSS.escape(stats["nom"]) + "]");
-    players.pop(players.indexOf(name));
-    node.remove()
+    var node = templatePlayer.parentNode.querySelector("[perso=" + CSS.escape(name) + "]");
+    players = players.filter((value)=>value!=name);
+    node.remove();
+    selectedPlayer = "";
 }
 
 function removeSpellFront(name) {
-    var node = templateSpells.parentNode.querySelector("[perso=" + CSS.escape(stats["nom"]) + "]");
+    var node = templateSpells.parentNode.querySelector("[perso=" + CSS.escape(name) + "]");
     node.remove()
 }
 
@@ -92,10 +93,10 @@ function addSpellFront(player) {
 function selectPlayer(playerTable) {
     var name = playerTable.getAttribute("perso");
     if (selectedPlayer != name) {
-        if ((permission == 1) || true ||
-            (permission == 2 && name == "Janin") ||
-            (permission == 3 && name == "Couvercle") ||
-            (permission == 4 && name == "Brouss")) {
+        if ((permission == 1) || // true ||
+            (permission == 2 && name.includes("Janin")) ||
+            (permission == 3 && name.includes("Couvercle")) ||
+            (permission == 4 && name.includes("Brouss"))) {
 
             if (selectedPlayer != "") {
                 var oldPlayer = document.getElementsByClassName("perso_actif")[0];
@@ -112,15 +113,17 @@ function selectPlayer(playerTable) {
     }
 }
 
-function addPlayerBack(name) { updateGameBack("add_perso", name) }
+function addPlayerBack(name) { 
+    updateGameBack("add_perso", name) }
 
-function removePlayerBack(name) { updateGameBack("remove_perso", name) }
+function removePlayerBack(name) { 
+    updateGameBack("remove_perso", name) }
 
 function typeEditable(event) {
     updateDelayer = delayerTime;
     if (event.key == 'Enter') {
         event.target.innerText = event.target.innerText.replace(/(\r\n|\n|\r)/gm, "");
-        updateGameBack(event.target.getAttribute("perso"),
+        updateGameBack(event.target.id,
             event.target.innerText,
             event.target.closest(".row").getAttribute("perso"));
     }

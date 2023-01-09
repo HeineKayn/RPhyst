@@ -24,7 +24,7 @@ async def combat_update_back():
     action,value1,value2 = req["action"],req["value1"],req["value2"]
     if current_user.auth_id == 1 :
         if action == "remove_perso" : partie.removeJoueur(value1)
-        # if action == "add_perso"    : partie.addJoueur(value1)
+        if action == "add_perso"    : partie.addJoueur(value1)
         if action == "valueTour" and value1.isdigit() : partie.tour = int(value1)
         if action == "valueIni"  and value1.isdigit() : partie.getJoueur(value2).init = int(value1) 
         if action == "valueHP" :
@@ -32,6 +32,6 @@ async def combat_update_back():
             if value1.isdigit()  : joueur.hp = int(value1)
             elif value1 == "reset" : joueur.hp = joueur.stats["HP"]
 
-    if action == "add_perso"    : 
-        partie.addJoueur(value1)
+    # if action == "add_perso"    : 
+    #     partie.addJoueur(value1)
     return {}
