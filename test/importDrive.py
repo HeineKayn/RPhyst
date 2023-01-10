@@ -50,5 +50,21 @@ class Sheet():
 sheet = Sheet()
 # sheet.getStats("Brouss")
 
+info = {'Level' : 5, "RégionE" : "Partout" , "RaretéE" : "Rare", "ZoneE" : "Partout", "MobE" : ""}
+
+query = f"""
+            'Equipement' in item.keys() and 
+            (not item['Niveau'] or int(item['Niveau']) == int({info['Level']})) and
+            item['Région'] in ['{info['RégionE']}', 'Partout', 'Toutes', ''] and
+            item['Zone'] in ['{info['ZoneE']}', 'Partout', 'Toutes', ''] and
+            item['Rareté'] in ['{info['RaretéE']}'] and
+            item['Mob'] in ['{info['MobE']}','Tous',''] and
+            item['Vente'] != 'Non'
+        """
+
 # a = sheet.bddPage.get_worksheet(8).get_all_records()
-# print(a)
+a = sheet.sheetEquip.get_all_records()
+query = f'[item["Equipement"] for item in a if {query}]'
+a = eval(query)
+a.sort()
+print(a)
